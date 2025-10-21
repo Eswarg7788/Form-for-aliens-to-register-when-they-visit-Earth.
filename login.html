@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Alien Login 🚀</title>
+<style>
+  body { 
+    font-family:'Orbitron', sans-serif; 
+    background-image:url('image2.jpg'); 
+    background-size:cover; 
+    background-position:center; 
+    text-align:center; 
+    color:#00ffcc; 
+    padding:50px;
+  }
+  h1 { 
+    font-size:2.8rem; 
+    text-shadow:0 0 25px #00ffaa,0 0 50px #00ffff;
+  }
+  form { 
+    background: rgba(0,0,0,0.75); 
+    padding:30px; 
+    border-radius:20px; 
+    display:inline-block; 
+    box-shadow:0 0 30px #00ffaa; 
+  }
+  input { 
+    margin:10px; 
+    padding:12px; 
+    width:250px; 
+    border-radius:8px; 
+    border:2px solid #00ffaa; 
+    background:rgba(0,0,0,0.5); 
+    color:#00ffcc; 
+    outline:none;
+  }
+  button { 
+    background:#00ffaa; 
+    color:#000; 
+    border:none; 
+    padding:10px 25px; 
+    border-radius:8px; 
+    cursor:pointer;
+  }
+  button:hover { 
+    background:#00ffcc; 
+    box-shadow:0 0 20px #00ffaa;
+  }
+  a { color:#00ffaa; text-decoration:none; }
+
+  /* Popup Styles */
+  #popup { 
+    position: fixed; 
+    top:50%; 
+    left:50%; 
+    transform: translate(-50%, -50%) scale(0); 
+    background: rgba(0,0,0,0.9); 
+    color: #00ffcc; 
+    padding: 30px 40px; 
+    border: 3px solid #00ffaa; 
+    border-radius:20px; 
+    text-align:center; 
+    box-shadow:0 0 40px #00ffaa; 
+    transition: transform 0.4s ease; 
+    z-index:1000;
+  }
+  #popup.show { transform: translate(-50%, -50%) scale(1); }
+  #popup button { 
+    margin-top:15px; 
+    background:#00ffaa; 
+    color:#000; 
+    border:none; 
+    border-radius:8px; 
+    padding:10px 15px; 
+    cursor:pointer; 
+    font-weight:bold;
+  }
+  #popup button:hover { background:#00ffcc; transform:scale(1.1);}
+</style>
+</head>
+<body>
+<h1 style="color: white;">🛸 Alien Login Portal</h1>
+<form onsubmit="return login()">
+  <input type="text" id="alienID" placeholder="Alien ID 👽"><br>
+  <input type="password" id="password" placeholder="Secret Code 🔐"><br>
+  <button type="submit">Enter Portal 🌌</button>
+</form>
+<p>Not registered? <a href="index.html">Join Galactic Network</a></p>
+
+<!-- Popup -->
+<div id="popup">
+  <h2 id="popupTitle"></h2>
+  <p id="popupMessage"></p>
+  <button onclick="closePopup()">Close</button>
+</div>
+
+<script>
+function login(){
+  // No validation — directly go to welcome page
+  showPopup("✅ Login Successful!", "Welcome back, intergalactic explorer! 🌍 Redirecting...");
+  setTimeout(()=>{ window.location.href="welcome.html"; }, 1500);
+  return false; // prevent form submission
+}
+
+function showPopup(title, message){
+  document.getElementById("popupTitle").innerHTML = title;
+  document.getElementById("popupMessage").innerHTML = message;
+  document.getElementById("popup").classList.add("show");
+}
+
+function closePopup(){
+  document.getElementById("popup").classList.remove("show");
+}
+</script>
+</body>
+</html>
